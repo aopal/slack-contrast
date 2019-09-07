@@ -135,6 +135,65 @@
 		pickers.textcolor.onFineChange = "updateAll()";
 		pickers.textcolor.fromString('00aeef');
 
+		function calculateL(r,g,b) {
+			var R = r
+			var G = g
+			var B = b
+
+			if(r <= 0.03928){
+				R = r/12.92
+			} else {
+				R = Math.pow(((r+0.055)/1.055), 2.4)
+			}
+			if(g <= 0.03928){
+				G = g/12.92
+			} else {
+				G = Math.pow(((g+0.055)/1.055), 2.4)
+			}
+			if(b <= 0.03928){
+				B = b/12.92
+			} else {
+				B = Math.pow(((b+0.055)/1.055), 2.4)
+			}
+
+			return 0.2126 * R + 0.7152 * G + 0.0722 * B
+		}
+
+		function calculateLFromArray(rgb) {
+			var r = Math.round(rgb[0])/255.0;
+			var g = Math.round(rgb[1])/255.0;
+			var b = Math.round(rgb[2])/255.0;
+
+			return calculateL(r,g,b);
+		}
+
+		function getContrast(L,Lt) {
+			if (L > Lt){
+				return (L + 0.05) / (Lt + 0.05)
+			} else {
+				return (Lt + 0.05) / (L + 0.05)
+			}
+		}
+
+		var blackL = calculateL(0,0,0);
+		var whiteL = calculateL(1,1,1);
+
+		function decideContrastInfoColor(L,contrast,textString) {
+			if ( contrast >= 4.5 ) {
+				return textString
+			} else {
+				var blackContrast = getContrast(L,blackL);
+				var whiteContrast = getContrast(L,whiteL);
+				if ( blackContrast > 4.5 ) {
+					return "#000000";
+				} else if ( whiteContrast >= 4.5 ) {
+					return "#ffffff"
+				} else {
+					return textString;
+				}
+			}
+		}
+
 		function update (id) {
 			document.getElementById('left').style.backgroundColor =
 				pickers.bgcolor.toHEXString();
@@ -162,60 +221,11 @@
 				return;
 			}
 
-			r = Math.round(pickers[id].rgb[0])/255.0;
-			g = Math.round(pickers[id].rgb[1])/255.0;
-			b = Math.round(pickers[id].rgb[2])/255.0;
+			var L = calculateLFromArray(pickers[id].rgb);
+			var Lt = calculateLFromArray(pickers['textcolor'].rgb);
+			var contrast = getContrast(L,Lt);
 
-			R = r
-			G = g
-			B = b
-
-			if(r <= 0.03928){
-				R = r/12.92
-			} else {
-				R = Math.pow(((r+0.055)/1.055), 2.4)
-			}
-			if(g <= 0.03928){
-				G = g/12.92
-			} else {
-				G = Math.pow(((g+0.055)/1.055), 2.4)
-			}
-			if(b <= 0.03928){
-				B = b/12.92
-			} else {
-				B = Math.pow(((b+0.055)/1.055), 2.4)
-			}
-
-			L = 0.2126 * R + 0.7152 * G + 0.0722 * B
-
-
-			rt = Math.round(pickers['textcolor'].rgb[0])/255.0;
-			gt = Math.round(pickers['textcolor'].rgb[1])/255.0;
-			bt = Math.round(pickers['textcolor'].rgb[2])/255.0;
-
-			Rt = rt
-			Gt = gt
-			Bt = bt
-
-			if(rt <= 0.03928){
-				Rt = rt/12.92
-			} else {
-				Rt = Math.pow(((rt+0.055)/1.055), 2.4)
-			}
-			if(gt <= 0.03928){
-				Gt = gt/12.92
-			} else {
-				Gt = Math.pow(((gt+0.055)/1.055), 2.4)
-			}
-			if(bt <= 0.03928){
-				Bt = bt/12.92
-			} else {
-				Bt = Math.pow(((bt+0.055)/1.055), 2.4)
-			}
-
-			Lt = 0.2126 * Rt + 0.7152 * Gt + 0.0722 * Bt
-
-			contrast = 0
+			var contrastInfoColor = decideContrastInfoColor( L, contrast, pickers.textcolor.toHEXString() );
 
 			if (L > Lt){
 				contrast = (L + 0.05) / (Lt + 0.05)
@@ -231,6 +241,10 @@
 			document.getElementById(id + '-cntrst').innerHTML = "Contrast: " + rounded;
 			document.getElementById(id + '-min').innerHTML = "Passed minimum contrast: " + min_pass;
 			document.getElementById(id + '-en').innerHTML = "Passed enhanced contrast: " + enhanced_pass;
+
+			document.getElementById(id + '-cntrst').style.color = contrastInfoColor;
+			document.getElementById(id + '-min').style.color = contrastInfoColor;
+			document.getElementById(id + '-en').style.color = contrastInfoColor;
 		}
 
 		function setHSV (id, h, s, v) {
