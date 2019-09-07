@@ -43,32 +43,32 @@
 		<div class="panel bgcolor">
 			<button id="bgcolor-button" style="background-image: none; background-color: rgb(171, 142, 101); color: rgb(0, 0, 0);" class="">Choose dark mode color</button>
 			<table>
-				<tbody><tr><th>RGB</th><td><input id="bgcolor-rgb" onchange="setString('bgcolor', this.value)"></td></tr>
-				<tr><th>HEX</th><td><input id="bgcolor-hex" onchange="setString('bgcolor', this.value)"></td></tr>
+				<tbody><tr><th>RGB</th><td><input id="bgcolor-rgb" onchange="setString('bgcolor', this.value); updateAll()"></td></tr>
+				<tr><th>HEX</th><td><input id="bgcolor-hex" onchange="setString('bgcolor', this.value); updateAll()"></td></tr>
 
-				<tr><th>H</th><td><input id="bgcolor-hue" class="short" onchange="setHSV('bgcolor', this.value, null, null)"> °</td></tr>
-				<tr><th>S</th><td><input id="bgcolor-sat" class="short" onchange="setHSV('bgcolor', null, this.value, null)"> %</td></tr>
-				<tr><th>V</th><td><input id="bgcolor-val" class="short" onchange="setHSV('bgcolor', null, null, this.value)"> %</td></tr>
+				<tr><th>H</th><td><input id="bgcolor-hue" class="short" onchange="setHSV('bgcolor', this.value, null, null); updateAll()"> °</td></tr>
+				<tr><th>S</th><td><input id="bgcolor-sat" class="short" onchange="setHSV('bgcolor', null, this.value, null); updateAll()"> %</td></tr>
+				<tr><th>V</th><td><input id="bgcolor-val" class="short" onchange="setHSV('bgcolor', null, null, this.value); updateAll()"> %</td></tr>
 
-				<tr class="red"><th>R</th><td><input id="bgcolor-red" class="short" onchange="setRGB('bgcolor', this.value, null, null)"></td></tr>
-				<tr class="grn"><th>G</th><td><input id="bgcolor-grn" class="short" onchange="setRGB('bgcolor', null, this.value, null)"></td></tr>
-				<tr class="blu"><th>B</th><td><input id="bgcolor-blu" class="short" onchange="setRGB('bgcolor', null, null, this.value)"></td></tr>
+				<tr class="red"><th>R</th><td><input id="bgcolor-red" class="short" onchange="setRGB('bgcolor', this.value, null, null); updateAll()"></td></tr>
+				<tr class="grn"><th>G</th><td><input id="bgcolor-grn" class="short" onchange="setRGB('bgcolor', null, this.value, null); updateAll()"></td></tr>
+				<tr class="blu"><th>B</th><td><input id="bgcolor-blu" class="short" onchange="setRGB('bgcolor', null, null, this.value); updateAll()"></td></tr>
 			</tbody></table>
 		</div>
 
 		<div class="panel textcolor">
 			<button id="textcolor-button" style="background-image: none; background-color: rgb(171, 142, 101); color: rgb(0, 0, 0);" class="">Choose text/emoji color</button>
 			<table>
-				<tbody><tr><th>RGB</th><td><input id="textcolor-rgb" onchange="setString('textcolor', this.value)"></td></tr>
-				<tr><th>HEX</th><td><input id="textcolor-hex" onchange="setString('textcolor', this.value)"></td></tr>
+				<tbody><tr><th>RGB</th><td><input id="textcolor-rgb" onchange="setString('textcolor', this.value); updateAll()"></td></tr>
+				<tr><th>HEX</th><td><input id="textcolor-hex" onchange="setString('textcolor', this.value); updateAll()"></td></tr>
 
-				<tr><th>H</th><td><input id="textcolor-hue" class="short" onchange="setHSV('textcolor', this.value, null, null)"> °</td></tr>
-				<tr><th>S</th><td><input id="textcolor-sat" class="short" onchange="setHSV('textcolor', null, this.value, null)"> %</td></tr>
-				<tr><th>V</th><td><input id="textcolor-val" class="short" onchange="setHSV('textcolor', null, null, this.value)"> %</td></tr>
+				<tr><th>H</th><td><input id="textcolor-hue" class="short" onchange="setHSV('textcolor', this.value, null, null); updateAll()"> °</td></tr>
+				<tr><th>S</th><td><input id="textcolor-sat" class="short" onchange="setHSV('textcolor', null, this.value, null); updateAll()"> %</td></tr>
+				<tr><th>V</th><td><input id="textcolor-val" class="short" onchange="setHSV('textcolor', null, null, this.value); updateAll()"> %</td></tr>
 
-				<tr class="red"><th>R</th><td><input id="textcolor-red" class="short" onchange="setRGB('textcolor', this.value, null, null)"></td></tr>
-				<tr class="grn"><th>G</th><td><input id="textcolor-grn" class="short" onchange="setRGB('textcolor', null, this.value, null)"></td></tr>
-				<tr class="blu"><th>B</th><td><input id="textcolor-blu" class="short" onchange="setRGB('textcolor', null, null, this.value)"></td></tr>
+				<tr class="red"><th>R</th><td><input id="textcolor-red" class="short" onchange="setRGB('textcolor', this.value, null, null); updateAll()"></td></tr>
+				<tr class="grn"><th>G</th><td><input id="textcolor-grn" class="short" onchange="setRGB('textcolor', null, this.value, null); updateAll()"></td></tr>
+				<tr class="blu"><th>B</th><td><input id="textcolor-blu" class="short" onchange="setRGB('textcolor', null, null, this.value); updateAll()"></td></tr>
 			</tbody></table>
 		</div>
 
@@ -76,16 +76,16 @@
 		<div class="panel fgcolor">
 			<button id="fgcolor-button" style="background-image: none; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">Choose light mode color</button>
 			<table>
-				<tbody><tr><th>RGB</th><td><input id="fgcolor-rgb" onchange="setString('fgcolor', this.value)"></td></tr>
-				<tr><th>HEX</th><td><input id="fgcolor-hex" onchange="setString('fgcolor', this.value)"></td></tr>
+				<tbody><tr><th>RGB</th><td><input id="fgcolor-rgb" onchange="setString('fgcolor', this.value); updateAll()"></td></tr>
+				<tr><th>HEX</th><td><input id="fgcolor-hex" onchange="setString('fgcolor', this.value); updateAll()"></td></tr>
 
-				<tr><th>H</th><td><input id="fgcolor-hue" class="short" onchange="setHSV('fgcolor', this.value, null, null)"> °</td></tr>
-				<tr><th>S</th><td><input id="fgcolor-sat" class="short" onchange="setHSV('fgcolor', null, this.value, null)"> %</td></tr>
-				<tr><th>V</th><td><input id="fgcolor-val" class="short" onchange="setHSV('fgcolor', null, null, this.value)"> %</td></tr>
+				<tr><th>H</th><td><input id="fgcolor-hue" class="short" onchange="setHSV('fgcolor', this.value, null, null); updateAll()"> °</td></tr>
+				<tr><th>S</th><td><input id="fgcolor-sat" class="short" onchange="setHSV('fgcolor', null, this.value, null); updateAll()"> %</td></tr>
+				<tr><th>V</th><td><input id="fgcolor-val" class="short" onchange="setHSV('fgcolor', null, null, this.value); updateAll()"> %</td></tr>
 
-				<tr class="red"><th>R</th><td><input id="fgcolor-red" class="short" onchange="setRGB('fgcolor', this.value, null, null)"></td></tr>
-				<tr class="grn"><th>G</th><td><input id="fgcolor-grn" class="short" onchange="setRGB('fgcolor', null, this.value, null)"></td></tr>
-				<tr class="blu"><th>B</th><td><input id="fgcolor-blu" class="short" onchange="setRGB('fgcolor', null, null, this.value)"></td></tr>
+				<tr class="red"><th>R</th><td><input id="fgcolor-red" class="short" onchange="setRGB('fgcolor', this.value, null, null); updateAll()"></td></tr>
+				<tr class="grn"><th>G</th><td><input id="fgcolor-grn" class="short" onchange="setRGB('fgcolor', null, this.value, null); updateAll()"></td></tr>
+				<tr class="blu"><th>B</th><td><input id="fgcolor-blu" class="short" onchange="setRGB('fgcolor', null, null, this.value); updateAll()"></td></tr>
 			</tbody></table>
 		</div>
 
@@ -132,7 +132,7 @@
 		pickers.fgcolor.fromString('FFFFFF');
 
 		pickers.textcolor = new jscolor('textcolor-button', options);
-		pickers.textcolor.onFineChange = "update('textcolor'); update('fgcolor'); update('bgcolor')";
+		pickers.textcolor.onFineChange = "updateAll()";
 		pickers.textcolor.fromString('00aeef');
 
 		function update (id) {
@@ -246,6 +246,12 @@
 		function setString (id, str) {
 			pickers[id].fromString(str);
 			update(id);
+		}
+
+		function updateAll() {
+			update('bgcolor');
+			update('fgcolor');
+			update('textcolor');
 		}
 
 		update('bgcolor');
