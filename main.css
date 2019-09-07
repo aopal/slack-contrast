@@ -1,0 +1,646 @@
+/*
+ * @author Jan Odvarko
+ */
+
+/* DEBUG only
+* { border: 1px solid red; }
+*/
+
+
+#left {
+	width: 50%;
+	height: 50%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: red;
+}
+
+#right {
+	width: 50%;
+	height: 50%;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-color: blue;
+}
+
+.sample div{
+	padding-top: 3%;
+}
+
+.sample .bold {
+	font-weight: bold;
+}
+
+.sample .italic {
+	font-style: italic;
+}
+
+html, body { margin: 0; padding: 0; height: 100%; }
+/* body { background: #F1F7E0; color: #333; font: 16pt Arial,Helvetica,sans-serif; text-align: center; } */
+
+/* embedded fonts */
+body { font-family: "Open Sans"; }
+h1, h2, #navigation { font-family: "Open Sans Condensed"; }
+
+h2 { font-size: 160%; }
+h3 { font-size: 120%; }
+h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: normal; color: #8E204C; }
+
+a { color: #D6005D; }
+a:hover { color: #FF3380; }
+
+#wrap {
+	position: relative;
+	min-width: 980px;
+	min-height: 100%;
+}
+
+#navigation,
+#navigation a {
+	color: #FFF;
+}
+
+#navigation {
+	position: relative;
+	white-space: nowrap;
+	font-size: 130%;
+	z-index: 10;
+}
+
+#navigation ul,
+#navigation li { margin: 0; padding: 0; }
+#navigation ul { display: block; }
+#navigation li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+#navigation li,
+#navigation a {
+	height: 80px; line-height: 80px;
+}
+
+#navigation a {
+	display: block;
+	text-decoration: none; 
+	padding: 0 15px;
+}
+
+#navigation .section a {
+	opacity: 0.9;
+	filter: alpha(opacity=90); /* IE */
+}
+
+#navigation .section a:hover,
+#navigation .section.active a {
+	opacity: 1;
+	filter: alpha(opacity=100); /* IE */
+}
+
+#navigation .section a:hover {
+	background-color: #95A171;
+}
+
+#navigation .logo {
+	padding: 0 0px 0 100px;
+	position: relative;
+}
+
+#navigation .logo .img {
+	display: block;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 0; top: -5px;
+	background: url('jscolor-logo.png') center center no-repeat;
+}
+
+#footer {
+	padding: 40px 0;
+	font-size: 80%;
+	background: #262626;
+}
+
+#footer,
+#footer a {
+	color: #CCC;
+}
+
+#footer-content { margin: 0 50px; }
+#footer-related { margin: 20px 0; font-size: 90%; color: #999; font-size: 60%; }
+#footer-related strong { font-size: 140%; font-weight: normal; color: #CCC; }
+#footer-related h2 { display: inline; font-size: 140%; font-family: inherit; color: #CCC; }
+#footer-copyright { margin: 20px 0; }
+
+.strip { position: relative; width: 100%; }
+.strip-content { z-index: 100; }
+.strip-content,
+.strip-bg-content { width: 920px; position: relative; margin: 0 auto; }
+
+.code-html .tag,
+.code-html .tag * { color: #009; }
+.code-html .val,
+.code-html .val * { color: #090; }
+
+
+/* License button */
+
+.license-btn a {
+	display: block;
+	text-decoration: none;
+	background: #FFF;
+	overflow: hidden;
+	width: 230px;
+	border: 2px solid #8E204C;
+	text-align: center;
+	color: #B22763;
+}
+.license-btn .sep { display: none; }
+.license-btn .lic-pre,
+.license-btn .lic-post { display: block; margin: 5px 0; text-decoration: none; font-size: 80%; }
+.license-btn .lic-pre { margin-top: 30px; }
+.license-btn .lic-name { display: block; font-size: 120%; }
+.license-btn .lic-descr { display: block; margin: 10px 0 20px 0; color: #333; font-size: 80%; font-style: italic; }
+.license-btn .price { display: block; padding: 8px 0; background: #AB2567; color: #FFF; font-weight: bold; }
+.license-btn a:hover { transform: scale(1.05); border-color: #B22763; }
+.license-btn a:hover .price { background: #B22763; }
+
+
+/* Latest release download button */
+
+.latest-release-btn a {
+	display: block;
+	text-decoration: none;
+	background: #FFF;
+	overflow: hidden;
+	width: 230px;
+	border: 2px solid #8E204C;
+	text-align: center;
+	color: #B22763;
+}
+.latest-release-btn .sep { display: none; }
+.latest-release-btn .release-label,
+.latest-release-btn .release-name,
+.latest-release-btn .release-info { display: block; margin: 10px 0; }
+.latest-release-btn .release-label { margin-top: 20px; color: #333; font-size: 100%; }
+.latest-release-btn .release-name { text-decoration: underline; }
+.latest-release-btn .release-info { margin-bottom: 20px; color: #333; font-size: 80%; font-style: italic; }
+.latest-release-btn .download-text { display: block; padding: 8px 0; background: #AB2567; color: #FFF; font-weight: bold; }
+.latest-release-btn a:hover { transform: scale(1.05); border-color: #B22763; }
+.latest-release-btn a:hover .download-text { background: #B22763; }
+
+
+/* Overview header */
+
+#overview-header { display: none; }
+
+
+/* Intro */
+
+#intro-strip { padding: 50px 0 50px 0; }
+#intro-content {
+	color: #505244;
+	text-align: left; /* IE */
+	width: 860px;
+}
+#intro-content .descr { width: 600px; float: left; text-align: center; }
+#intro-content .descr p { margin: 0; }
+#intro-content .descr .major { font-size: 120%; margin-bottom: 20px; }
+#intro-content .descr strong { color: #8E204C; font-weight: normal; }
+#intro-content .download-latest { float: right; }
+
+
+/* Installation */
+
+#installation-strip {
+	padding: 80px 0;
+	background: #FFF;
+	border: 1px solid rgb(178,181,165);
+	border-style: solid none solid none;
+}
+#installation-content h2 {
+	margin-bottom: 30px;
+	color: #484848;
+}
+#installation-diagram { text-align: left; position: relative; }
+#install-seg1,
+#install-seg2,
+#install-seg3 { height: 200px; top: 0; }
+#install-seg1,
+#install-seg3 { width: 440px; background: #FFF; border: 2px solid #DFE0D7; }
+#install-seg2 {
+	position: absolute;
+	z-index: 1;
+	width: 100px;
+	left: 405px;
+	background: url('installation-rarrow.png') center center no-repeat;
+}
+#install-seg3 { position: absolute; right: 0; top: 0; }
+#install-seg1 { left: 0; }
+#install-seg3 { right: 0; }
+#install-code,
+#install-preview { font-size: 70%; }
+#install-code { margin: 8px; }
+#install-preview { padding: 20px 30px; }
+#installation-toolbar { margin-top: 40px; }
+
+
+/* Demo app */
+
+#demo-strip { padding: 50px 0; background: #404040; color: #CCC; }
+#demo-content h2 { margin-bottom: 30px; color: #DFDFDF; }
+#demo-content a { color: #FFF; }
+
+#demo-app { position: relative; height: 100%; }
+#demo-app table { width: 100%; font-size: 80%; }
+#demo-app th { font-weight: normal; padding: 0 5px; }
+#demo-app table input { width: 10em; color: #FFF; border: 1px solid #999; background: #262626; padding: 2px 5px; }
+#demo-app table input:focus { border-color: #FFF !important; color: #FFF !important; }
+#demo-app table input.short { width: 3em; text-align: center !important; }
+#demo-app button { width: 180px; height: 50px; margin: 10px 0; }
+
+#demo-app .panel { position: absolute; top: 0; width: 220px; }
+#demo-app .panel .red { color: #F99; }
+#demo-app .panel .red input { border-color: #F99; color: #F99; }
+#demo-app .panel .grn { color: #9F9; }
+#demo-app .panel .grn input { border-color: #9F9; color: #9F9; }
+#demo-app .panel .blu { color: #9CF; }
+#demo-app .panel .blu input { border-color: #9CF; color: #9CF; }
+
+#demo-app .panel.bgcolor { left: 0; }
+#demo-app .panel.bgcolor th { text-align: right; }
+#demo-app .panel.bgcolor td { text-align: left; }
+#demo-app .panel.bgcolor table input { text-align: left; }
+
+#demo-app .panel.fgcolor { right: 0; }
+#demo-app .panel.fgcolor th { text-align: right; }
+#demo-app .panel.fgcolor td { text-align: left; }
+#demo-app .panel.fgcolor table input { text-align: left; }
+
+#demo-app .panel.textcolor { position: relative; margin: auto; }
+#demo-app .panel.textcolor th { text-align: right; }
+#demo-app .panel.textcolor td { text-align: left; }
+#demo-app .panel.textcolor table input { text-align: left; }
+
+#demo-app #demo-preview {
+	margin: 0 auto;
+	padding: 60px 0;
+	width: 440px;
+	border: 4px solid #000;
+	text-align: center;
+	font-size: 110%;
+	font-weight: bold;
+	border-radius: 15px;
+}
+#demo-app #demo-preview strong {
+	font-weight: normal;
+	font-size: xx-large;
+}
+#demo-app #demo-links { margin: 40px auto; }
+
+
+/* Features */
+
+#features-strip { padding: 60px 0 40px 0; }
+#features-content,
+#features-content h3 { color: #303616; }
+#features-containers { width: 100%; position: relative; }
+#features-content .feature-container { width: 33.3%; float: left; font-size: 90%; }
+#features-content .feature-box {
+	width: 220px;
+	height: 220px;
+	margin: 0 auto;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-width: 1px;
+	border-style: solid;
+}
+#features-content h3 { font-size: 140%; min-height: 45px; margin: 25px 0px 10px 0px; padding: 0; }
+#features-content abbr { border-bottom: 1px dotted #333; }
+#features-content .feature-text { margin: 0 10px; }
+
+#feature1-box { background-image: url('icon-no-dependencies.png'); background-color: #AB2567; border-color: #871D4C; }
+#feature2-box { background-image: url('icon-cross-browser.png'); background-color: #3399CC; border-color: #297CA6; }
+#feature3-box { background-image: url('icon-customizable.png'); background-color: #83AF2C; border-color: #678A23; }
+
+
+/* Compatibility */
+
+#compat-strip { overflow: hidden; background: #404040; }
+#compat-bg { position: absolute; width: 100%; height: 400px; }
+#compat-body { position: relative; width: 100%; }
+#compat-text,
+#compat-text h2,
+#compat-text strong { color: #FFF; }
+#compat-text h2 { margin: 60px 0 40px 0; font-size: 160%; color: rgba(255,255,255,0.85); }
+#compat-text strong { font-weight: bold; }
+#compat-text { position: absolute; right: 0; top: 0; width: 360px; font-size: 110%; }
+#compat-text .inner { padding: 20px; }
+#compat-body,
+#compat-text,
+#compat-text .bg,
+#compat-text .fg { height: 420px; }
+#compat-text .bg,
+#compat-text .fg { position: absolute; left: 0; top: 0; width: 100%; }
+#compat-text .bg {
+	background: #000;
+
+	opacity: 0.5;
+	filter: alpha(opacity=50); /* IE */
+}
+#device-drawings { position: absolute; left: 0; top: 0; }
+#device-drawings .device-shape {
+    border-color: #CCC; /* fallback */
+    border-color: rgba(255,255,255,0.5);
+}
+
+
+/* Testimonials */
+
+#testimonials-strip { padding: 50px 0 60px 0; background: #8C3857; }
+#testimonials-content,
+#testimonials-content h2,
+#testimonials-content a { color: #FFF; }
+#testimonials-content h2 {
+	margin-bottom: 30px;
+	color: rgba(255,255,255,0.85);
+}
+#testimonials-list { }
+#testimonials-list .testimonial { width: 33.3%; float: left; text-align: left; font-size: 90%; }
+#testimonials-list .testimonial-inner { padding: 0 15px; }
+#testimonials-list q { font-style: italic; }
+#testimonials-list .author { text-align: right; }
+
+
+/* Download / License */
+
+.section-download #section,
+.section-license #section { width: 920px; position: relative; margin: 50px auto; }
+
+.section-download #download-wrap h2 { margin: 20px 0; }
+
+.section-download .download-latest { width: 50%; float: left; }
+.section-download .download-latest-content { padding: 5px 30px; }
+.section-download .download-latest .external-links { margin: 20px 0; }
+.section-download .latest-release-btn a { margin: 0 auto; }
+
+.section-download .quick-installation { width: 50%; float: right; }
+.section-download .quick-installation-content { padding: 5px 10px; border-left: 2px solid #DBE0CB; }
+.section-download .quick-installation ol { text-align: left; }
+.section-download .quick-installation pre { background: #FFF; padding: 15px 10px; font-size: 80%; border: 1px solid #E1E3D0; }
+.section-download .quick-installation pre.first { border-bottom: none; padding-bottom: 20px; }
+.section-download .quick-installation pre.last { border-top: none; padding-top: 20px; }
+
+.section-download #licensing-wrap { text-align: left; }
+.section-download #licensing-wrap h2 { margin: 50px 0 15px 0; text-align: center; }
+.section-download #commercial-licensing-options { margin: 40px 0; }
+
+.section-download .license-btn-wrap { width: 33.3%; float: left; text-align: center; }
+.section-download .license-btn a { margin: 0 auto; }
+.section-download .license-links { margin: 15px 0; font-size: 80%; }
+
+.section-download img.license-product-box { float: right; }
+.section-download img.license-gpl-logo {
+	float: right;
+	margin: 10px;
+
+	opacity: 0.85;
+	filter: alpha(opacity=85); /* IE */
+}
+
+
+/* License */
+
+#license-document,
+#license-switch li {
+	border: 2px solid #D8DACD;
+}
+
+#license-document {
+	padding: 35px;
+	font-size: 85%;
+	text-align: left;
+}
+
+#license-document .license-btn {
+	float: right;
+	margin: 25px;
+}
+
+#license-switch { 
+	position: relative;
+	top: 2.5px;
+	white-space: nowrap;
+	z-index: 10;
+}
+
+#license-switch ul,
+#license-switch li { margin: 0; padding: 0; }
+#license-switch ul { display: block; }
+#license-switch li {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0 5px;
+	border-bottom: none;
+}
+
+#license-document,
+#license-switch .active a { background: #FFF !important; }
+#license-switch .active a {
+	height: 52.5px;
+	filter: none !important; /* In order to remove gradient in IE6-9 */
+}
+
+#license-switch a {
+	display: block;
+	padding: 0 25px;
+	height: 50px;
+	line-height: 50px;
+	color: #505244;
+	text-decoration: none; 
+}
+
+#license-navig a {
+	display: inline-block;
+	padding: 10px 30px;
+}
+
+#license-navig {
+	padding-top: 40px;
+}
+
+
+/********** ROUNDED CORNERS **********/
+
+#features-content .feature-box,
+.latest-release-btn a,
+.license-btn a {
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+
+
+/********** SHADOWS **********/
+
+#installation-strip,
+#license-document {
+-webkit-box-shadow: 0px 0px 40px 0px rgba(171,178,151,0.85);
+-moz-box-shadow: 0px 0px 40px 0px rgba(171,178,151,0.85);
+box-shadow: 0px 0px 40px 0px rgba(171,178,151,0.85);
+}
+
+#install-seg1,
+#install-seg3 {
+-webkit-box-shadow: 0px 15px 25px 0px rgba(178,181,165,0.75);
+-moz-box-shadow: 0px 15px 25px 0px rgba(178,181,165,0.75);
+box-shadow: 0px 15px 25px 0px rgba(178,181,165,0.75);
+}
+
+#demo-strip,
+#compat-strip {
+-webkit-box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.85) inset;
+-moz-box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.85) inset;
+box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.85) inset;
+}
+
+.latest-release-btn a,
+.license-btn a {
+-webkit-box-shadow: 0px 0px 20px 0px rgba(143,65,99,0.30) inset;
+-moz-box-shadow: 0px 0px 20px 0px rgba(143,65,99,0.30) inset;
+box-shadow: 0px 0px 20px 0px rgba(143,65,99,0.30) inset;
+}
+
+#footer {
+-webkit-box-shadow: 0px 20px 20px 0px rgba(0,0,0,0.15) inset;
+-moz-box-shadow: 0px 20px 20px 0px rgba(0,0,0,0.15) inset;
+box-shadow: 0px 20px 20px 0px rgba(0,0,0,0.15) inset;
+}
+
+
+/********** GRADIENTS **********/
+
+/*
+ * In IE 8 and 9, elements with gradient will have their contents cropped.
+ * That's why here we rather create the gradient on navigation's child <ul>
+ */
+#navigation ul {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3d1c29+0,5e2b41+100 */
+background: #3d1c29; /* Old browsers */
+background: -moz-linear-gradient(top, #3d1c29 0%, #5e2b41 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3d1c29), color-stop(100%,#5e2b41)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #3d1c29 0%,#5e2b41 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #3d1c29 0%,#5e2b41 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #3d1c29 0%,#5e2b41 100%); /* IE10+ */
+background: linear-gradient(to bottom, #3d1c29 0%,#5e2b41 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d1c29', endColorstr='#5e2b41',GradientType=0 ); /* IE6-9 */
+}
+
+#navigation .section.active a {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b22763+0,8e204c+100 */
+background: #b22763; /* Old browsers */
+background: -moz-linear-gradient(top, #b22763 0%, #8e204c 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b22763), color-stop(100%,#8e204c)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #b22763 0%,#8e204c 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #b22763 0%,#8e204c 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #b22763 0%,#8e204c 100%); /* IE10+ */
+background: linear-gradient(to bottom, #b22763 0%,#8e204c 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b22763', endColorstr='#8e204c',GradientType=0 ); /* IE6-9 */
+}
+
+#intro-strip,
+#features-strip {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1f7de+0,cfd9b0+100 */
+background: #f1f7de; /* Old browsers */
+background: -moz-linear-gradient(top, #f1f7de 0%, #cfd9b0 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f7de), color-stop(100%,#cfd9b0)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #f1f7de 0%,#cfd9b0 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #f1f7de 0%,#cfd9b0 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #f1f7de 0%,#cfd9b0 100%); /* IE10+ */
+background: linear-gradient(to bottom, #f1f7de 0%,#cfd9b0 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f7de', endColorstr='#cfd9b0',GradientType=0 ); /* IE6-9 */
+}
+
+.section-download .quick-installation pre.first {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,1+67,0+100 */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 67%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(67%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 67%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 67%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 67%,rgba(255,255,255,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 67%,rgba(255,255,255,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.section-download .quick-installation pre.last {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+33,1+100 */
+background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(33%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+#license-switch a {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e5e8da+100 */
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(229,232,218,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,232,218,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,232,218,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,232,218,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,232,218,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(229,232,218,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e8da',GradientType=0 ); /* IE6-9 */
+}
+
+#license-switch a:hover {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,eaede1+100 */
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(234,237,225,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(234,237,225,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(234,237,225,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(234,237,225,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(234,237,225,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(234,237,225,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eaede1',GradientType=0 ); /* IE6-9 */
+}
+
+
+/********** TRANSITIONS AND ANIMATIONS **********/
+
+#navigation a,
+.license-btn a,
+.license-btn a .price,
+.latest-release-btn a,
+.latest-release-btn .download-text {
+transition: .25s;
+-o-transition: .25s;
+-ms-transition: .25s;
+-moz-transition: .25s;
+-webkit-transition: .25s;
+}
+
+
+/********** FONTS **********/
+
+/* https://fonts.googleapis.com/css?family=Open+Sans:300 */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  /*src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');*/
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(fonts/opensans_v13_DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
+/* https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300 */
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  /*src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xF1YPouZEKgzpqZW9wN-3Ek.woff) format('woff');*/
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url(fonts/opensanscondensed_v10_gk5FxslNkTTHtojXrkp-xF1YPouZEKgzpqZW9wN-3Ek.woff) format('woff');
+}
