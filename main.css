@@ -6,6 +6,10 @@
 * { border: 1px solid red; }
 */
 
+#intro {
+	padding-top: 2%;
+	color: black;
+}
 
 #left {
 	width: 50%;
